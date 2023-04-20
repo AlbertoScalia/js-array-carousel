@@ -26,6 +26,17 @@ slideSet[counterSlide].classList.remove(`d-none`)
 
 //addEventListener per attivare il ciclo infinito col bottone in alto
 btnUp.addEventListener(`click`, function () {
+slideSet[counterSlide].classList.add(`d-none`);
+counterSlide++;
+if (counterSlide === slides.length) {
+  counterSlide = 0;
+}
+slideSet[counterSlide].classList.remove(`d-none`);
+});
+
+
+//addEventListener per attivare il bottone in basso
+btnDown.addEventListener(`click`, function () {
   slideSet[counterSlide].classList.add(`d-none`);
   if (counterSlide === 0) {
     counterSlide = slides.length;
@@ -33,15 +44,3 @@ btnUp.addEventListener(`click`, function () {
   counterSlide--;
   slideSet[counterSlide].classList.remove(`d-none`);
 });
-
-//addEventListener per attivare il bottone in basso
-btnDown.addEventListener(`click`, function () {
-  slideSet[counterSlide].classList.add(`d-none`);
-  counterSlide++;
-  if (counterSlide === slides.length) {
-    counterSlide = 0;
-  }
-  slideSet[counterSlide].classList.remove(`d-none`);
-});
-
-
